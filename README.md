@@ -37,7 +37,8 @@ $ latex diplomski_ljuska.tex
 $ latex diplomski_ljuska.tex 
 ```
 
-c) ili koristiti ```latexmk```
+c) ili koristiti
+[Latexmk](http://users.phys.psu.edu/~collins/software/latexmk-jcc/)
 
 ## Ljuska B
 

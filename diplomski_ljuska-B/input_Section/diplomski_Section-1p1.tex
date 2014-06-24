@@ -1,0 +1,96 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{Rangovi u usporedbi dva tretmana} \label{sec:1p1}
+%
+\setcounter{equation}{0}
+
+U razli\v{c}itim se podru\v{c}jima \v{c}esto pojavljuje 
+problem je li predlo\v{z}ena inovacija bolja od trenutnog rje\v{s}enja.
+"Produ\v{z}uje li novi lijek \v{z}ivot pacijenata s malignim tumorima?",
+"Smanjuje li se \v{s}tetan u\v{c}inak cigareta uporabom odre\dj{}enog filtera?"
+i "Smanjuje li novi sustav prijevoza tro\v{s}kove?"
+samo su neki od primjera.
+Kroz sljedeći primjer poku\v{s}ati \'{c}emo ilustrirati na\v{c}in na
+koji, barem intuitivno, mo\v{z}emo testirati ovakva pitanja.
+
+\primjer{
+Bolnica za ljude s mentalnim pote\v{s}ko\'{c}ama \v{z}eli testirati novi lijek
+koji navodno ima pozitivan utjecaj na neki mentalni poreme\'{c}aj. U bolnici
+se trenutno nalazi 5 pacijenata s tim poreme\'{c}ajem u, otprilike, istom
+stadiju. Od ovih pet pacijenata tri su odabrana na slu\v{c}ajan na\v{c}in
+da prime novi lijek dok \'{c}e preostala dva slu\v{z}iti kao kontrolna grupa.
+Oni \'{c}e primiti obi\v{c}nu tabletu bez ikakvih aktivnih sastojaka (takav
+"lijek" zovemo \textit{placebo}). Pacijenti (po mogu\'{c}nosti
+i osoblje) ne\'{c}e znati da li su dobili novi lijek. Ovo eliminira mogu\'{c}nost
+psiholo\v{s}kog utjecaja.
+
+Nakon nekog vremena nezavisni psihijatar pregledava pacijente te ih rangira
+po stupnju njihovog stanja. Pacijent za \v{c}ije se stanje procijeni da je
+najgore dobije rang 1, sljede\'{c}i 2, \dots, do ranga 5.
+
+Pretpostavimo da lijek nema utjecaja, tj. da se pacijentovo stanje ne mijenja
+bez obzira je li primio novi lijek ili placebo. Ovu tvrdnju nazovimo
+\textit{nultom hipotezom}. Kako pod nultom hipotezom rang koji pacijenti dobivaju
+ne ovisi o lijeku, ve\'{c} samo o stanju pacijenta, jasno je da izbor pacijenata
+koji \'{c}e primiti novi lijek ne utje\v{c}e na rangiranje. Dakle, mo\v{z}emo promatrati
+svaki od rangova kao odre\dj{}en i prije nego \v{s}to smo izabrali testnu i kontrolnu grupu.
+Izbor pacijenata koji \'{c}e biti u testnoj grupi tada u potpunosti odre\dj{}uje i rangove.
+Svaki izbor testne grupe dijeli rangove u dvije skupine, rangove koji pripadaju
+testnoj grupi i one koji pripadaju kontrolnoj grupi. Sve kombinacije prikazane su
+u sljede\'{c}oj tablici.
+
+\renewcommand{\arraystretch}{1.2}
+\begin{equation}
+\begin{tabular}{r | c | c | c | c | c}
+Testna grupa & (3,4,5) & (2,4,5) & (1,4,5) & (2,3,5) & (1,3,5) \\
+Kontrolna grupa & (1,2) & (1,3) & (2,3) & (1,4) & (2,4) \\
+\hline
+Testna grupa & (2,3,4) & (1,3,4) & (1,2,4) & (1,2,3) & (1,2,5) \\
+Kontrolna grupa & (1,5) & (2,5) & (3,5) & (4,5) & (3,4) 
+\end{tabular}
+\end{equation}
+\renewcommand{\arraystretch}{1}
+
+Kao \v{s}to se vidi i iz (1.1.1) pacijenti, a time i njihovi rangovi, mogu se podijeliti
+na deset razli\v{c}itih na\v{c}ina. Pod pretpostavkom da smo 3 pacijenta za testnu grupu
+izabrali na slu\v{c}ajan na\v{c}in mislimo da \'{c}e bilo koji od ovih 10 na\v{c}ina biti
+jednako vjerojatan, tj. imati \'{c}e vjerojatnost $\frac{1}{10}$. Budu\'{c}i da je svaki od
+na\v{c}ina jednako vjerojatan  veliki rangovi kod testne grupe ukazivati \'{c}e na uspje\v{s}nost
+novog lijeka (vi\v{s}e o ovoj tvrdnji biti \'{c}e prilo\v{z}eno u sljede\'{c}em odlomku).
+}
+
+Razmatranja iz Primjera 1.1 lako se generaliziraju. Pretpostavimo da nam je dano $N$ pacijenata
+za testiranje i da je na slu\v{c}ajan na\v{c}in izabrano $n$ od po\v{c}etnih $N$, koji \'{c}e
+primiti tretman dok \'{c}e ostalih $m=N-n$ slu\v{z}iti kao kontrolna grupa. Iz elementarne teorije
+prebrojavanja slijedi da je broj izbora jednak $\binom{N}{n}$. Po
+pretpostavci, $n$ pacijenata koji \'{c}e primiti novi tretman izabrano je na slu\v{c}ajan na\v{c}in
+(misle\'{c}i ovdje, a i ubudu\'{c}e, da su svi izbori jednako vjerojatni) pa svaki od izbora
+ima vjerojatnost $1/\binom{N}{n}$. Na kraju testiranja pacijenti su rangirani (po mogu\'{c}nosti
+od nepristranog promatra\v{c}a) s obzirom na ciljani rezultat. Kao i prije, uz ispravnost nulte
+hipoteze, na rangiranje ne utje\v{c}e koji su pacijenti u testnoj grupi. Rang svakog od pacijenata
+mo\v{z}e se promatrati kao odre\dj{}en (iako nama nepoznat) prije nego li je izvr\v{s}eno
+particioniranje na testnu i kontrolnu grupu. Stoga, uz ispravnost nulte hipoteze, svako
+pridru\v{z}ivanje rangova jednako je vjerojatno sa vjerojatno\v{s}\'{c}u $1/\binom{N}{n}$.
+
+Zapi\v{s}imo gornju tvrdnju malo formalnije. Neka su $S_{1},\dots,S_{n}$ rangovi testne grupe.
+Tada je
+\begin{equation}
+P_{H_{0}} \left( S_{1}=s_{1}, \dots, S_{n}=s_{n} \right) = \frac{1}{\binom{N}{n}}
+\end{equation}
+
+\noindent
+gdje je $\{s_{1},\dots,s_{n}\}$ $n$-\v{c}lani podskup od $\{ 1,2,\dots,N \}$,
+a $P_{H_{0}}$ ozna\v{c}ava vjerojatnost uz istinitost nulte hipoteze.
+
+Tijekom cijelog odlomka pretpostavljali smo da ne izabiremo pacijente ve\'{c} da su nam dani te
+da smo na slu\v{c}ajan na\v{c}in odabrali testnu grupu. Ovakav \'{c}emo model, u kojem
+slu\v{c}ajnost ulazi samo kroz odabir testne grupe, zvati \bi{randomizacijski model}
+(eng. \textit{randomization model}). Model u kojem se $N$ pacijenata
+izabire na odre\dj{}eni na\v{c}in iz neke populacije zovemo \bi{populacijski model}.
+U ovom modelu slu\v{c}ajnost ulazi i kroz izbor pacijenata.
+
+Iako nas uglavnom zanima prijenos rezultata na populaciju postoje primjeri
+gdje je randomizacijski model dovoljan. Npr. farmer koji \v{z}eli testirati
+donosi li novo gnojivo napredak na njegovih nekoliko polja 
+i ne zanima ga donosi li napredak na ostalim poljima.
+

@@ -1,0 +1,196 @@
+\documentclass[ a4paper, 12pt]{report}
+%
+\usepackage[text={15cm,22cm},centering]{geometry} % geometrija stranice
+\usepackage[utf8]{inputenc}
+\usepackage[croatian]{babel}
+\usepackage{amssymb ,amsmath, amsthm}
+\usepackage{graphicx} % paket za umetanje slika
+%\usepackage{psfrag} % paket za pisanje po slikama
+\usepackage{ccaption} % paket za kontroliranje "caption"-a za table, figure, ...
+%
+\makeatletter
+\def\@makechapterhead#1{%
+  %\vspace*{30\p@}%
+  \noindent
+  \begin{tabular*}{1\textwidth}{r}
+  \hline
+  \end{tabular*}
+  {\parindent \z@ \raggedright \normalfont
+  \begin{center}
+  \ifnum \c@secnumdepth >\m@ne
+      \huge\bfseries \thechapter \space \space
+  \fi
+  \interlinepenalty\@M
+  \huge \bfseries #1\par\nobreak
+  \end{center}
+  %\vskip 20\p@
+  }
+  \noindent
+  \begin{tabular*}{1\textwidth}{r}
+  \hline
+  \hline
+  \end{tabular*}
+  \vskip 20\p@
+}
+\def\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\large\bfseries}}
+\makeatother
+%
+\newcounter{Primjer}
+\numberwithin{Primjer}{chapter}
+\setcounter{Primjer}{1}
+\newcommand{\primjer}[1]{~\vskip 10pt
+{\footnotesize{
+\noindent
+{\textsl{Primjer \addtocounter{Primjer}{1} \thechapter.\arabic{Primjer} }}
+\vskip 5pt
+#1
+\vskip 10pt
+}}
+}
+%
+\newtheorem{defn}{Definicija}[chapter]
+\newtheorem{tm}{Teorem}[chapter]
+\newtheorem{prop}{Propozicija}[chapter]
+\newtheorem{lm}{Lema}[chapter]
+\newtheorem{cor}{Korolar}[chapter]
+%
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{section}.\arabic{equation}}
+%
+\flushbottom
+\addtolength{\voffset}{-0.5cm}
+%\renewcommand{\baselinestretch}{2}
+%  odkomentirajte ako zelite dvostruki prored
+%
+\captiondelim{}
+%  ako necete imati, kod slika ili tablica, captione
+%  npr: samo "Slika 1" a ne "Slika 1: Nesto"
+%  inace zakomentirajte
+%
+\newcommand{\bi}[1]{\textbf{\em{#1}}}
+% naredba "\bi{nesto}" tekst nesto stavlja u bold i italic
+%
+%\includeonly{}
+%  odkomentirajte ako zelite da se kompajlira samo Sazetak + Poglavlja
+%  u \includeonly{} mozete dodati sve sto se includa u ovoj datoteci
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Informacije potrebne za naslovnicu.
+% Mogu se koristiti i izvan naslovnice.
+%
+\newcommand{\Fakultet}{
+  Sveu\v{c}ili\v{s}te u Zagrebu \\[5mm]
+  PMF - Matemati\v{c}ki odjel
+}
+\newcommand{\ImePrezimeAutora}{Ime i prezime}
+\newcommand{\NaslovRada}{Naslov rada}
+\newcommand{\ImePrezimeMentora}{Mentor}
+\newcommand{\MjestoDatum}{mjesto, mjesec godina}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pocetak dokumenta
+%
+\begin{document}
+%
+\include{include/diplomski_naslovnica}
+\include{include/diplomski_povjerenstvo}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sadrzaj
+%
+\newpage
+\pagenumbering{roman} \setcounter{page}{1}
+\tableofcontents
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\include{include/diplomski_uvod}
+%
+\pagenumbering{arabic} \setcounter{page}{1}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ovdje napisite naziv prvog poglavlja
+\chapter{Wilcoxonova statistika sume rangova}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\input{input_Section/diplomski_Section-1p1}
+\input{input_Section/diplomski_Section-1p2}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\chapter{Wilcoxonova statistika rangova s predznacima}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\input{input_Section/diplomski_Section-2p1}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\chapter{Asimptotski rezultati}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\input{input_Section/diplomski_Section-3p1}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\appendix
+%
+\renewcommand{\theequation}{A.\arabic{equation}}
+%
+\input{input_Section/dodatak_A}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliografija
+%
+\newpage
+\addcontentsline{toc}{chapter}{Bibliografija}
+\begin{thebibliography}{99}
+
+\bibitem{Ferguson} T.S. Ferguson:
+\textit{A Course in Large Sample Theory},
+Chapman \& Hall/CRC, London, 1996.
+
+\bibitem{Hajek} J. Hajek:
+\textit{Some Extensions of Wald-Wolfowitz-Noether Theorem},
+Ann. Math. Statistics, Vol. 32, 505-523, 1961.
+
+\bibitem{Harding} E.F. Harding:
+\textit{An Efficient, Minimal-storage Procedure for Calculating
+the Mann-Whitney U, Generalized U and Similar Distributions},
+Applied Statistics, Vol. 33, No. 1, 1-6. 1984.
+
+\bibitem{Lehmann-Nonpar} E.L. Lehmann:
+\textit{Nonparametrics: Statistical Methods Based on Ranks},
+Revised First Edition, Springer, New York, 2006.
+
+\bibitem{Mann-Whitney} H.B. Mann, D.R. Whitney:
+\textit{On a Test of Whether One of Two Random
+Variables is Stochastically Larger Than the Other},
+Ann. Math. Statistics, Vol. 18, 50-60, 1947.
+
+\bibitem{SarapaTV} N. Sarapa: \textit{Teorija vjerojatnosti},
+\v{S}kolska knjiga, Zagreb, 2002.
+
+\bibitem{Shiryaev-Prob} A.N. Shiryaev, \textit{Probability},
+Second Edition, Springer, New York, 1996.
+
+\bibitem{Sprent+Smeeton-Nonpar} P. Sprent, N.C. Smeeton,
+\textit{Applied Nonparametric Statistical Methods},
+Fourth Edition, Chapman \& Hall/CRC, Boca Raton, 2007.
+
+\bibitem{Wilcoxon} F. Wilcoxon:
+\textit{Individual Comparisons by Ranking Methods},
+Biometrics, Vol. 1, 80-83, 1945.
+
+\end{thebibliography}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+

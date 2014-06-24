@@ -1,0 +1,59 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{Randomizacijski model} \label{sec:1p2}
+%
+\setcounter{equation}{0}
+
+U Primjeru 1.1 re\v{c}eno je da \'{c}e dovoljno veliki rangovi ukazivati na uspje\v{s}nost
+novog lijeka. Me\dj{}utim, kada su rangovi $(S_{1},\dots,S_{n})$ dovoljno veliki? Takvi
+se zaklju\v{c}ci uglavnom donose pomo\'{c}u neke testne statistike \v{c}ije velike vrijednosti
+odgovaraju velikim rangovima. Jedna od takvih test statistika je i
+\begin{equation}
+W_{S}=S_{1}+\cdots+S_{n} \mathrm{.}
+\end{equation}
+
+
+Statistiku $W_{S}$ definiranu relacijom (1.2.1) zovemo \bi{Wilcoxonova
+statistika sume rangova} (eng. \textit{Wilcoxon rank-sum statistic}),
+a test definiran s $W_{S}$ \bi{Wilcoxonov test sume rangova} 
+(eng. \textit{Wilcoxon rank-sum test}).
+Ime su dobili po poznatom ameri\v{c}kom statisti\v{c}aru Franku Wilcoxonu 
+koji ih 1945. g. prvi puta upotrijebio u svom radu \cite{Wilcoxon}.
+
+Time smo dobili na\v{c}in za provjeru jesu li nam rangovi dovoljno veliki.
+Da bismo izra\v{c}unali kriti\v{c}no podru\v{c}je,
+ili $p$-vrijednost, potrebno je poznavati, uz $H_{0}$, distribuciju od $W_{S}$.
+Za Primjer 1.1 gdje je $N=5,\ n=3$ distribucija se mo\v{z}e dobiti iz tablice (1.1.1).
+Svakom od izbora testne grupe odgovara jedna vrijednost $w$ testne statistike $W_{S}$ 
+kao \v{s}to je prikazano u tablici (1.2.2).
+
+\renewcommand{\arraystretch}{1.5}
+\begin{equation}
+\begin{tabular}{c | c | c | c | c | c | c | c | c | c}
+3,4,5 & 2,4,5 & 1,3,5 & 2,3,5  & 1,3,5  & 2,3,4 & 1,3,4 & 1,2,4 & 1,2,3 & 1,2,5 \\
+\hline
+12 & 11 & 10 & 10 & 9 & 9 & 8 & 7 & 6 & 8
+\end{tabular}
+\end{equation}
+\renewcommand{\arraystretch}{1}
+
+\noindent
+Budu\'{c}i da je vjerojatnost svakog izbora jednaka $\frac{1}{10}$ vrijedi
+
+\renewcommand{\arraystretch}{1.5}
+\begin{equation}
+\begin{tabular}{c | c | c | c | c | c | c | c}
+$w$ & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+\hline
+$P_{H_{0}}(W_{S}=w)$ & 0.1 & 0.1 & 0.2 & 0.2 & 0.2 & 0.1 & 0.1
+\end{tabular}
+\end{equation}
+\renewcommand{\arraystretch}{1}
+
+Ove vjerojatnosti tvore distribuciju od $W_{S}$ uz hipotezu $H_{0}$. Distribuciju
+uz uvjet istinitosti od $H_{0}$ nazivamo \textit{nulta distribucija}. Iz (1.2.3) slijedi
+da za Primjer 1.1. vrijedi
+$$P_{H_{0}} (W_{S} \ge 12) = P_{H_{0}} (W_{S} = 12) = 0.1 \mathrm{.}$$
+Za razinu zna\v{c}ajnosti $\alpha = 0.1$ nultu hipotezu odbacujemo samo kada je $W_{S}=12$,
+tj. kada su rangovi testne grupe 3, 4 i 5.
+

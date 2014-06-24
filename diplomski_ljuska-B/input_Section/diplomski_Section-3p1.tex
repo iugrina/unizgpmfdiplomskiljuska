@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{O\v{c}ekivanje i varijanca} \label{sec:3p1}
+%
+
+Da bismo mogli koristiti asimptotske rezultate za neke slu\v{c}ajne varijable
+potrebno je poznavati njihovo o\v{c}ekivanje i varijancu. Osnovna svojstva
+matemati\v{c}kog o\v{c}ekivanja i varijance ovdje \'{c}emo koristiti
+pretpostavljaju\'{c}i da je \v{c}itatelj ve\'{c} upoznat s njima. Formalni
+iskazi i dokazi mogu se na\'{c}i u \cite{SarapaTV} i \cite{Shiryaev-Prob}.
+
+
+\primjer{
+Pretpostavimo da se populacija sastoji od $N$ brojeva $v_{1},\dots,v_{N}$. Neka je
+na slu\v{c}ajan na\v{c}in izabran jedan od tih brojeva i ozna\v{c}imo ga s $V$.
+Za $v_{i}$ razli\v{c}ite vrijedi
+$V~\sim~\left(
+\begin{array}{c c c}
+v_{1} & \cdots & v_{N} \\
+\frac{1}{N} & \cdots & \frac{1}{N}
+\end{array} \right)$
+i iz definicije matemati\v{c}kog o\v{c}ekivanja slijedi
+\begin{equation}
+\mathrm{E}(V)= \frac{v_{1} + \cdots + v_{N}}{N} = \overline{v} \ \mathrm{,}
+\end{equation}
+gdje s $\overline{v}$ ozna\v{c}avamo aritmeti\v{c}ku sredinu. Ako vrijednosti
+$v_{i}$ nisu razli\v{c}ite, pretpostavimo da ih je to\v{c}no $n_{1}$ jednako
+$a_{1}$,\dots, $n_{c}$ jednako $a_{c}$. Tada je
+$V \sim \left(
+\begin{array}{c c c}
+a_{1} & \cdots & a_{c} \\
+\frac{n_{1}}{N} & \cdots & \frac{n_{c}}{N}
+\end{array} \right)$
+pa iz definicije matemati\v{c}kog
+o\v{c}ekivanja slijedi
+\begin{equation}
+\mathrm{E}(V)= \frac{n_{1}a_{1} + \cdots + n_{c}a_{c}}{N} = \overline{v} \ \mathrm{.}
+\end{equation}
+
+\noindent
+Vidimo da je o\v{c}ekivanje u oba slu\v{c}aja jednako aritmeti\v{c}koj sredini
+vrijednosti $v_{1},\dots,v_{N}$. 
+
+Izra\v{c}unajmo sada varijancu. Neka su vrijednosti $v_{i}$ razli\v{c}ite.
+Tada iz (3.1.1) i definicije varijance slijedi
+\begin{equation}
+\mathrm{Var}(V) = {\tau}^2
+\end{equation}
+gdje je
+\begin{equation}
+{\tau}^2 = \frac{1}{N} \sum_{i=1}^{N} {(v_{i} - \overline{v} )}^2
+\end{equation}
+ili, koriste\'{c}i $\mathrm{Var}(V) = \mathrm{E}(V^2) - {\mathrm{E}(V)}^{2}$,
+\begin{equation}
+{\tau}^2 = \frac{1}{N} \sum_{i=1}^{N} {v_{i}}^2 - {\overline{v} }^2 \mathrm{.}
+\end{equation}
+
+Ako vrijednosti $v_{i}$ nisu razli\v{c}ite, pretpostavimo da ih je to\v{c}no
+$n_{1}$ jednako $a_{1}$,\dots, $n_{c}$ jednako $a_{c}$. Tada iz definicije
+varijance i (3.1.2) slijedi
+\begin{equation}
+\mathrm{Var}(V) =
+\frac{n_{1}}{N} (a_{1}-\overline{v})^2 + \cdots + \frac{n_{c}}{N} (a_{c}-\overline{v})^2 
+= \frac{1}{N} \sum_{i=1}^{N} {(v_{i} - \overline{v} )}^2 = {\tau}^2 \mathrm{.}
+\end{equation}
+
+Lagano se poka\v{z}e da vrijedi i formula (3.1.5).
+}
+

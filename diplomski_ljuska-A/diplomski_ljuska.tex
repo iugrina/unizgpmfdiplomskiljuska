@@ -1,0 +1,113 @@
+\documentclass[ a4paper, 12pt]{report}
+%
+\usepackage[text={16cm,24cm},centering]{geometry} % geometrija stranice
+\usepackage[utf8]{inputenc}
+\usepackage[croatian]{babel}
+\usepackage{amssymb ,amsmath, amsthm}
+\usepackage{graphicx} % paket za umetanje slika
+%\usepackage{psfrag} % paket za pisanje po slikama
+\usepackage{ccaption} % paket za kontroliranje "caption"-a za table, figure, ...
+%
+\newtheorem{defn}{Definicija}[section]
+\newtheorem{tm}{Teorem}[section]
+\newtheorem{prop}{Propozicija}[section]
+\newtheorem{lm}{Lema}[section]
+\newtheorem{cor}{Korolar}[tm]
+%
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+%  za detaljnije informacije o numeriranju
+%  mozete pogledati npr.
+%  http://www.iam.ubc.ca/~newbury/tex/numbering.html
+%
+\flushbottom
+\addtolength{\voffset}{-0.5cm}
+%\renewcommand{\baselinestretch}{2}
+%  odkomentirajte ako zelite dvostruki prored
+%
+\captiondelim{}
+%  ako necete imati, kod slika ili tablica, captione
+%  npr: samo "Slika 1" a ne "Slika 1: Nesto"
+%  inace zakomentirajte
+%
+\newcommand{\bi}[1]{\textbf{\em{#1}}}
+% naredba "\bi{nesto}" tekst nesto stavlja u bold i italic
+%
+\newcounter{Section}
+\setcounter{Section}{0}
+%
+\newcommand{\Section}[1]{ \section{#1}
+  \setcounter{figure}{0} \setcounter{equation}{0}
+  \addtocounter{Section}{1} }
+% Napomena: section zapocinjite s \Section{...} a ne \section{...}
+%
+\newcommand{\Chapter}[1]{ \chapter{#1}
+  \setcounter{section}{\value{Section}} }
+% Napomena: chapter zapocinjite s \Chapter{...} a ne \chapter{...}
+%
+%\includeonly{}
+%  odkomentirajte ako zelite da se kompajlira samo Sazetak + Poglavlja
+%  u \includeonly{} mozete dodati sve sto se includa u ovoj datoteci
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Informacije potrebne za naslovnicu.
+% Mogu se koristiti i izvan naslovnice.
+%
+\newcommand{\Fakultet}{
+  Sveu\v{c}ili\v{s}te u Zagrebu \\[5mm]
+  PMF - Matemati\v{c}ki odjel
+}
+\newcommand{\ImePrezimeAutora}{Ime i Prezime}
+\newcommand{\NaslovRada}{Naslov rada}
+\newcommand{\ImePrezimeMentora}{prof. dr. sc. Ime i Prezime}
+\newcommand{\MjestoDatum}{Zagreb, mjesec godina}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pocetak dokumenta
+%
+\begin{document}
+%
+\include{include/diplomski_naslovnica}
+\include{include/diplomski_povjerenstvo}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sadrzaj
+%
+\newpage
+\pagenumbering{roman} \setcounter{page}{1}
+\tableofcontents
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\include{include/diplomski_uvod}
+%
+\pagenumbering{arabic} \setcounter{page}{1}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ovdje napisite naziv prvog poglavlja
+\Chapter{Naziv prvog poglavlja}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\input{input_Section/diplomski_Section-1}
+\input{input_Section/diplomski_Section-2}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ovdje napisite naziv drugog poglavlja
+\Chapter{Naziv drugog poglavlja}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\input{input_Section/diplomski_Section-3}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\include{include/diplomski_zakljucak}
+\include{include/diplomski_bibliografija}
+%
+\end{document}
+
